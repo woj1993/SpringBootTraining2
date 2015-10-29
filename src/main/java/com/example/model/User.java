@@ -6,14 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "users")
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
 
     @Id
     @GeneratedValue
     @Column
-    private int userId;
+    private int Id;
 
     @Column
     private String username;
@@ -25,17 +27,17 @@ public class User implements Serializable {
     private int age;
 
     /**
-     * @return the userId
+     * @return the Id
      */
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return Id;
     }
 
     /**
-     * @param userId the userId to set
+     * @param Id the userId to set
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     /**
@@ -95,7 +97,7 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 53 * hash + this.userId;
+        hash = 53 * hash + this.Id;
         hash = 53 * hash + Objects.hashCode(this.username);
         hash = 53 * hash + Objects.hashCode(this.password);
         hash = 53 * hash + this.age;
@@ -111,7 +113,7 @@ public class User implements Serializable {
             return false;
         }
         final User other = (User) obj;
-        if (this.userId != other.userId) {
+        if (this.Id != other.Id) {
             return false;
         }
         if (!Objects.equals(this.username, other.username)) {
